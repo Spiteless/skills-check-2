@@ -6,12 +6,12 @@ export default class Form extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
-            name: "",
-            src: "",
-            price: "",
-
+            name: props.name,
+            img: props.img,
+            price: props.price,
         }
+        console.log("Form props:", this.props)
+        console.log("Form state:", this.state)
         this.handleChange = this.handleChange.bind(this)
         this.cancel = this.cancel.bind(this)
     }
@@ -26,7 +26,7 @@ export default class Form extends React.Component {
     }
 
     cancel() {
-        const newState = {name: "", price: "", src: ""}
+        const newState = {name: "", price: "", img: ""}
         this.setState(newState)
         console.log("cancel", this.state)
     }
@@ -35,7 +35,7 @@ export default class Form extends React.Component {
         const newProduct = {
             name: this.state.name,
             price: this.state.price,
-            img: this.state.src,
+            img: this.state.img,
         }
         this.props.add_product(newProduct)
         this.cancel()
@@ -47,7 +47,7 @@ export default class Form extends React.Component {
                 <div className="form-container">
                     <img src='https://campussuite-storage.s3.amazonaws.com/prod/484005/2752018e-59b7-11e6-943a-22000bd8490f/2139479/6ac2a84e-d808-11ea-81b8-12ac6b7b4e67/optimizations/2097152' className="form-image-preview" alt="preview" />
                     <h2>Image Url:</h2>
-                    <input type="text" value={this.state.src} name="src" onChange={this.handleChange} />
+                    <input type="text" value={this.state.img} name="img" onChange={this.handleChange} />
                     <h2>Product Name:</h2>
                     <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
                     <h2>Price:</h2>

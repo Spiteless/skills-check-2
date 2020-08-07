@@ -2,8 +2,8 @@ UPDATE products
    SET name = $2,
        price = $3,
        img = $4
-       
- WHERE id = $1
+
+ WHERE id = $1;
 
 
-select * from products where product_id = $1
+select * from products

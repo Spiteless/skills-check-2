@@ -4,7 +4,7 @@ import Product from '../Product/Product'
 
 
 function Dashboard(props) {
-    console.log(props)
+    console.log("dashboard props", props)
     const {inventory} = props
 
     const products = inventory.map( product => (
@@ -14,6 +14,8 @@ function Dashboard(props) {
         name = {product.name}
         price = {product.price}
         img = {product.img}
+        prepEditForm={props.prepEditForm}
+        delete_product={props.delete_product}
         />
     ))
 
