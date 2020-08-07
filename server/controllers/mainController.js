@@ -1,22 +1,30 @@
 module.exports = {
     getAll: (req, res) => {
         const db = req.app.get('db')
-        db.get_boots().then(boots => {
-            res.status(200).send(boots)
+        db.get_inventory().then(inventory => {
+            res.status(200).send(inventory)
         })
     },
     add: (req, res) => {
         const db = req.app.get('db')
-        const {boot_image, description, price} = req.body
-        db.add_boot([boot_image, description, price]).then(boots => {
-            res.status(200).send(boots)
+        const {name, price, img} = req.body
+        db.add_inventory([name, price, img]).then(inventory => {
+            res.status(200).send(inventory)
         })
     },
     getOne: (req, res) => {
         const db = req.app.get('db')
         const {id} = req.params
-        db.get_boot(id).then(boot => {
-            res.status(200).send(boot)
+        db.get_inventory_single([id]).then(inventory => {
+            res.status(200).send(inventory)
         })
-    }
+    },
+    delete: (req, res) => {
+        const db = req.app.get('db')
+        console.log(req.params)
+        const {id} = req.params
+        db.delete_inventory_single([id]).then(inventory => {
+            res.status(200).send(inventory)
+        })
+    },
 }

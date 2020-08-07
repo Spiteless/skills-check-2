@@ -16,9 +16,15 @@ massive({
     console.log('Database is connected')
 })
 
-// app.get('/api/boots', bootsCtrl.getBoots)
-// app.post('/api/boots', bootsCtrl.addBoots)
-// app.get('/api/single/boot/:id', bootsCtrl.getOneBoot) 
+const api = {
+    base: 'http://localhost:4004/api/products',
+    single: 'http://localhost:4004/api/single/product'
+}
+
+app.get('/api/products', ctrl.getAll)
+app.post('/api/products', ctrl.add)
+app.get('/api/single/product/:id', ctrl.getOne) 
+app.delete('/api/single/product/:id', ctrl.delete) 
 
 
-app.listen(SERVER_PORT, () => console.log(`Port running on ${SERVER_PORT}`))
+app.listen(SERVER_PORT, () => console.log(`Port running on ${SERVER_PORT}\napi:        ${api.base} \napi.single: ${api.single}`))
