@@ -40,7 +40,6 @@ class App extends React.Component {
   } 
 
   componentDidMount() {
-    console.log("fired")
     this.get_products()
   }
 
@@ -62,9 +61,10 @@ class App extends React.Component {
     })
   }
 
-  prepEditForm(formData){
+  prepEditForm = (formData) => {
     // const newData = {...formData}
     console.log("prep edit form data:", formData)
+    console.log(formData.name, formData.price, formData.img)
     this.setState({
       name: formData.name,
       price: formData.price,
@@ -95,7 +95,6 @@ class App extends React.Component {
               />
             </div>
           </div>
-
         </main>
       </div>
     );
