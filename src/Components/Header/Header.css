@@ -1,0 +1,45 @@
+/*
+#ab2a19
+#de4735
+#ED6B5A
+#3AD886
+*/
+
+.nav-container{
+	height: 100px;
+	width: 100vw;
+}
+
+nav {
+	background-color: #ab2a19;
+	/* height: 45px; */
+	/* width: 100vw;  */
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+
+.logo-container{
+	height: 100px;
+	display: inline-block
+}
+
+.logo {
+	height: 50px;
+	width: 50px;
+	margin: 25px;
+	display: inline-block;
+	color: transparent;
+	background-image: url(../../media/logo.png);
+	background-size: cover;
+	/* padding: 15px; */
+}
+
+.logo-title{
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	margin-top: 35px;
+	font-weight: bold;
+	font-size: 1.7em;
+}
