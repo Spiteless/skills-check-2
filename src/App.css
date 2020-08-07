@@ -49,5 +49,23 @@ table {
 
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
+main {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-row{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.app-col{
+  display: inline-block;
+  align-self: flex-start;
+}

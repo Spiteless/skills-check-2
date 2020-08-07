@@ -3,19 +3,28 @@ import React from 'react'
 import Product from '../Product/Product'
 
 
-export default class Dashboard extends React.Component{
-    constructor(){
-        super()
-    }
-    render(){
-        return(
-            <div className='Dashboard'>
-                <div>
-                <h1>Dashboard</h1>
-                <Product/>
-                </div>
+function Dashboard(props) {
+    console.log(props)
+    const {inventory} = props
 
+    const products = inventory.map( product => (
+        <Product 
+        key = {product.id}
+        id = {product.id}
+        name = {product.name}
+        price = {product.price}
+        img = {product.img}
+        />
+    ))
+
+    return (
+        <div className='Dashboard'>
+            <div>
+                { products }
             </div>
-        )
-    }
+
+        </div>
+    )
 }
+
+export default Dashboard

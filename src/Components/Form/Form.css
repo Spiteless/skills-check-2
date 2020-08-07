@@ -1,0 +1,43 @@
+/*
+#ab2a19
+#de4735
+#ED6B5A
+#3AD886
+*/
+
+.Form {
+	background-color: #3AD886;
+	margin: 20px;
+	padding: 15px;
+	border-radius: 8px;
+}
+
+.form-container{
+	dispaly: flex;
+	width: 420px;
+	height: 490px;
+	background-color: #3AD886;
+	justify-content: left;
+	flex-direction: column;
+}
+
+.form {}
+
+.form-container input {
+	width: 95%;
+}
+
+.form-container h2 {
+	
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+	font-weight: 575; 
+}
+
+.form-container > *{
+	margin-bottom: 10px;;
+}
+.form-image-preview{
+	width: 318px;
+	border: 1px solid #ab2a19;
+}

@@ -17,8 +17,8 @@ massive({
 })
 
 const api = {
-    base: 'http://localhost:4004/api/products',
-    single: 'http://localhost:4004/api/single/product'
+    base: `http://localhost:${SERVER_PORT}/api/products`,
+    single: `http://localhost:${SERVER_PORT}/api/single/product`
 }
 
 app.get('/api/products', ctrl.getAll)
