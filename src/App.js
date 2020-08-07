@@ -34,6 +34,8 @@ class App extends React.Component {
         // ...fakeData
       ],
     }
+    this.get_products = this.get_products.bind(this)
+    this.add_product = this.add_product.bind(this)
   }
   get_products = () => {
     axios.get('/api/products').then(res => {
@@ -42,6 +44,13 @@ class App extends React.Component {
       })
     })
   }
+
+  add_product(product) {
+    axios.post('/api/products', product).then(res =>
+      this.setState({
+        inventory: res.data
+      }))
+  } 
 
   componentDidMount() {
     console.log("fired")
@@ -58,7 +67,9 @@ class App extends React.Component {
               <Dashboard inventory={this.state.inventory} />
             </div>
             <div className="app-col">
-              <Form />
+              <Form 
+              add_product = {this.add_product}
+              />
             </div>
           </div>
 

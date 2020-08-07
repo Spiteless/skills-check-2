@@ -10,6 +10,7 @@
 	margin: 20px;
 	padding: 15px;
 	border-radius: 8px;
+	display: absolute;
 }
 
 .form-container{
@@ -27,6 +28,31 @@
 	width: 95%;
 }
 
+.form-container button{
+	padding: 15px;
+	background-color: #ED6B5A;
+	border-radius: 7px;
+	margin: 10px;
+	border-color: none;
+	border: none;
+	font-weight: 800;
+}
+
+.form-button-row{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+/* 
+.left {
+	left: 0
+} */
+
+/* .right {
+	right: 0;
+	position: absolute;
+} */
+
 .form-container h2 {
 	
 	font-family: 'Open Sans', sans-serif;
@@ -41,3 +67,4 @@
 	width: 318px;
 	border: 1px solid #ab2a19;
 }
+

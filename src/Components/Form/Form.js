@@ -6,24 +6,56 @@ export default class Form extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            form: {
-                name: "",
-                src: "",
-                price: "",
-            }
+
+            name: "",
+            src: "",
+            price: "",
+
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.cancel = this.cancel.bind(this)
     }
+
+
+
+    handleChange(e) {
+        let change = {}
+        change[e.target.name] = e.target.value
+        this.setState(change)
+        console.log(this.state)
+    }
+
+    cancel() {
+        const newState = {name: "", price: "", src: ""}
+        this.setState(newState)
+        console.log("cancel", this.state)
+    }
+
+    postProduct(){
+        const newProduct = {
+            name: this.state.name,
+            price: this.state.price,
+            img: this.state.src,
+        }
+        this.props.add_product(newProduct)
+        this.cancel()
+    }
+
     render() {
         return (
             <div className='Form'>
                 <div className="form-container">
-                    <img src='https://campussuite-storage.s3.amazonaws.com/prod/484005/2752018e-59b7-11e6-943a-22000bd8490f/2139479/6ac2a84e-d808-11ea-81b8-12ac6b7b4e67/optimizations/2097152' className="form-image-preview" alt="Image Preview" />
+                    <img src='https://campussuite-storage.s3.amazonaws.com/prod/484005/2752018e-59b7-11e6-943a-22000bd8490f/2139479/6ac2a84e-d808-11ea-81b8-12ac6b7b4e67/optimizations/2097152' className="form-image-preview" alt="preview" />
                     <h2>Image Url:</h2>
-                    <input type="text" name="img" />
+                    <input type="text" value={this.state.src} name="src" onChange={this.handleChange} />
                     <h2>Product Name:</h2>
-                    <input type="text" name="name" />
+                    <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
                     <h2>Price:</h2>
-                    <input type="text" name="price" />
+                    <input type="text" value={this.state.price} name="price" onChange={this.handleChange} />
+                    <div className="form-button-row">
+                        <button className="btn-cancel left" onClick={this.cancel}>Cancel</button>
+                        <button className="btn-add right" onClick={() => this.postProduct()}>Add to Inventory</button>
+                    </div>
                 </div>
             </div>
         )
