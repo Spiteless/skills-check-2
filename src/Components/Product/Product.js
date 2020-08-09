@@ -16,9 +16,6 @@ function Product(props) {
     }
 
 
-
-
-    console.log('Product Props:"')
     return (
         <div className='Product'>
             <div className="image-container">

@@ -16,6 +16,7 @@ class App extends React.Component {
         name: "",
         price: "",
         img: "",
+        Lolredranger: 'deedeldeedee'
       // }
     }
     this.get_products = this.get_products.bind(this)
@@ -23,6 +24,7 @@ class App extends React.Component {
     this.edit_product = this.edit_product.bind(this)
     this.delete_product = this.delete_product.bind(this)
     this.prepEditForm = this.prepEditForm.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
   get_products = () => {
     axios.get('/api/products').then(res => {
@@ -61,6 +63,13 @@ class App extends React.Component {
     })
   }
 
+  handleChange(e) {
+    let change = {}
+    change[e.target.name] = e.target.value
+    this.setState(change)
+    console.log("State called in App.js:", this.state)
+}
+
   prepEditForm = (formData) => {
     // const newData = {...formData}
     console.log("prep edit form data:", formData)
@@ -92,6 +101,7 @@ class App extends React.Component {
               name = {this.state.name}
               img = {this.state.img}
               price = {this.state.price}
+              handleChangeMain = {this.handleChange}
               />
             </div>
           </div>

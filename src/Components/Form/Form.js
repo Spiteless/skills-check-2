@@ -28,14 +28,13 @@ export default class Form extends React.Component {
     cancel() {
         const newState = {name: "", price: "", img: ""}
         this.setState(newState)
-        console.log("cancel", this.state)
     }
 
     postProduct(){
         const newProduct = {
-            name: this.state.name,
-            price: this.state.price,
-            img: this.state.img,
+            name: this.props.name,
+            price: this.props.price,
+            img: this.props.img,
         }
         this.props.add_product(newProduct)
         this.cancel()
@@ -47,11 +46,11 @@ export default class Form extends React.Component {
                 <div className="form-container">
                     <img src='https://campussuite-storage.s3.amazonaws.com/prod/484005/2752018e-59b7-11e6-943a-22000bd8490f/2139479/6ac2a84e-d808-11ea-81b8-12ac6b7b4e67/optimizations/2097152' className="form-image-preview" alt="preview" />
                     <h2>Image Url:</h2>
-                    <input type="text" value={this.state.img} name="img" onChange={this.handleChange} />
+                    <input type="text" value={this.props.img} name="img" onChange={this.props.handleChangeMain} />
                     <h2>Product Name:</h2>
-                    <input type="text" value={this.state.name} name="name" onChange={this.handleChange} />
+                    <input type="text" value={this.props.name} name="name" onChange={this.props.handleChangeMain} />
                     <h2>Price:</h2>
-                    <input type="text" value={this.state.price} name="price" onChange={this.handleChange} />
+                    <input type="text" value={this.props.price} name="price" onChange={this.props.handleChangeMain} />
                     <div className="form-button-row">
                         <button className="btn-cancel left" onClick={this.cancel}>Cancel</button>
                         <button className="btn-add right" onClick={() => this.postProduct()}>Add to Inventory</button>
